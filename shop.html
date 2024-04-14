@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recycle-Mart Second-hand market place.</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/product-details.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+
+<style>
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+    background-color: #f4f6f8;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+::selection{
+    background-color: #7f71ff;
+    color: #ffffff;
+}
+.navigation{
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272727;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.logo i{
+    margin-right: 5px;
+}
+nav{
+    background-color: #ffffff;
+}
+.blog-filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background-color: #fafafa;
+}
+.blog-filter li{
+    padding: 5px 15px;
+    color: #838eab;
+    cursor: pointer;
+    margin: 3px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+.blog-filter li:hover,
+.blog-filter-active{
+    background-color: rgba(0,0,0,0.03);
+    color: #534f75 !important;
+    transition: all ease 0.3s;
+}
+.ad{
+    width:40%;
+    margin: 20px auto;
+    display: flex;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.06);
+}
+.ad img{
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.blog-container{
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    margin: auto;
+}
+.blog-box{
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 20px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
+}
+.blog-img{
+    display: flex;
+    width:100%;
+    min-height: 185px;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+.blog-img img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.category{
+    color: #ffffff;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    padding: 2px 10px;
+    font-size: 0.9rem;
+}
+.app .category{
+    background-color: #6e5eff;
+}
+.new .category{
+    background-color: #ff695e;
+}
+.web .category{
+    background-color: #ff5eb7;
+}
+.blog-text strong{
+    font-size: 1.2rem;
+    color: #20232b;
+    display: flex;
+    font-weight: 400;
+    margin: 10px 0px;
+    line-height: 25px;
+}
+.category-time{
+    display: flex;
+    align-items: center;
+}
+.category-time span{
+    font-size: 0.8rem;
+}
+.blog-category{
+    padding: 3px 6px;
+    color: #484f61;
+    font-weight: 500;
+    background-color: rgba(0,0,0,0.06);
+}
+.published-time{
+    margin-left: 10px;
+    color: #db3838;
+    font-weight: 500;
+}
+.publisher-profile{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.publisher-profile img{
+    width:30px;
+    height: 30px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.publisher-profile span{
+    color: #6d7ca1;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+footer{
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+footer span{
+    color: #131313;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.footer-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-social a{
+    padding: 0px 10px;
+    color: #20232b;
+}
+.footer-social a:hover{
+    color: #6a5ceb;
+    transition: all ease 0.3s;
+}
+.fix-nav{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width:100%;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.15);
+    z-index: 105;
+    animation: nav-animation 0.3s;
+ 
+}
+@keyframes nav-animation{
+    0%{
+        top: -100%;
+    }
+    100%{
+        top: 0px;
+    }
+}
+ 
+nav .menu-btn{
+    display: none;
+}
+@media(max-width:1200px){
+    .blog-container{
+        max-width:1000px;
+    }
+    .blog-img{
+        min-height: auto;
+        height: 170px;
+    }
+}
+@media(max-width:900px){
+    .blog-container{
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+    .ad{
+        width:60%;
+    }
+}
+@media(max-width:600px){
+    .blog-container{
+        width:90%;
+        grid-template-columns: 1fr;
+    }
+    .blog-img{
+        height: auto;
+    }
+    .logo{
+        font-size: 1.5rem;
+    }
+    nav{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 70px;
+        position: relative;
+        padding: 0px 20px;
+    }
+    .blog-filter{
+       display:none;
+       flex-direction: column;
+       position: absolute;
+       left: 0px;
+       top: 70px;
+       width:100%;
+       border-bottom: 2px solid #e2e2e2;
+       z-index: 105;
+    }
+    .blog-filter li{
+        width:100%;
+    }
+    nav .menu-icon{
+        cursor: pointer;
+        float: right;
+        padding: 5px;
+        position: relative;
+        user-select: none;
+        z-index: 2;
+    }
+    nav .menu-icon .nav-icon{
+        background-color: #000000cc;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background 0.2s ease-out;
+        width: 25px;
+    }
+    nav .menu-icon .nav-icon::before,
+    nav .menu-icon .nav-icon::after{
+        background-color: #000000cc;
+        content: '';
+        position: absolute;
+        height: 100%;
+        display: block;
+        width: 100%;
+        transition: all ease-out 0.2s;
+    }
+    nav .menu-icon .nav-icon::before{
+        top: 5px;
+    }
+    nav .menu-icon .nav-icon::after{
+        top: -5px;
+    }
+    nav .menu-icon .nav-icon,
+    nav .menu-icon:checked ~ .menu-icon .nav-icon{
+        background-color: transparent;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon::before{
+        transform: rotate(-45deg);
+        top: 0px;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon::after{
+        transform: rotate(45deg);
+        top: 0px;
+    }
+    nav .menu-btn:checked ~ .blog-filter{
+        display: flex;
+    }
+ 
+}
+@media(max-width:500px){
+    .blog-container{
+        width:100%;
+    }
+    footer{
+        flex-direction: column;
+    }
+    .footer-social{
+        margin-top: 10px;
+    }
+    .ad{
+        width: 90%;
+    }
+}
+.blog-text a strong:hover{
+    color: #6d7ca1;
+    transition: all ease 0.2s;
+}
+
+#blog-artcile{
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+}
+.article-container{
+    background-color: #ffffff;
+    border-left: 1px solid rgba(0,0,0,0.13);
+    border-right: 1px solid rgba(0,0,0,0.13);
+    padding: 30px;
+}
+.side-ad{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.side-ad a{
+    position: fixed;
+}
+.article-main-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.article-main-heading h1{
+    color: #313131;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 40px;
+}
+.by-date{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+.article-by,
+.article-date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    color: #838eab;
+}
+.article-by i,
+.article-date i{
+    margin: 0px 10px;
+}
+.article-img{
+    width:100%;
+    min-height: 500px;
+    margin: 10px 0px;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.article-img img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.content-ad{
+    width:80%;
+    display: flex;
+    margin: 20px auto 10px auto;
+}
+.content-ad img{
+    width:100%;
+    object-position: center;
+    object-fit: contain;
+}
+.article-text{
+    display: flex;
+    flex-direction: column;
+}
+.article-text-box{
+    margin: 10px 0px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.06);
+    padding: 10px;
+    border-left: 2px solid #20232b;
+    background-color: #ffffff;
+}
+.article-text-box strong{
+    color: #20232b;
+    font-size: 1.3rem;
+    margin-top: 4px;
+    font-weight: 500;
+}
+.article-text-box p{
+    color: #6d6d6d;
+}
+@media(max-width:1250px){
+    #blog-artcile{
+        grid-template-columns: 1fr 800px 1fr;
+    }
+}
+@media(max-width:1150px){
+    #blog-artcile{
+        display: flex;
+        width:80%;
+        margin: auto;
+    }
+    .side-ad{
+        display: none;
+    }
+}
+@media(max-width:1000px){
+    #blog-artcile{
+        width:90%;
+    }
+    .article-img{
+        max-height: auto;
+        min-height: auto;
+    }
+}
+@media(max-width:600px){
+    #blog-artcile{
+        width:100%;
+        padding: 0px 10px;
+    }
+    .article-container{
+        padding: 20px 10px;
+    }
+    .article-main-heading h1{
+        font-size: 1.8rem;
+        line-height: 30px;
+    }
+    .content-ad{
+        width:100%;
+    }
+    .article-text-box p{
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="top-bar">
+      <div class="container">
+        <p>Free shipping for all order of $105</p>
+      </div>
+    </div>
+
+    <div class="nav-wrapper">
+      <div class="container">
+
+        <h1 class="h1">
+          <a href="./index.html" class="logo">Recycle<span class="span">mart</span></a>
+        </h1>
+
+        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+        <nav class="navbar" data-navbar>
+
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+          <ul class="navbar-list">
+
+            <!-- <li>
+              <a href="./index.html" class="navbar-link">Home</a>
+            </li> -->
+
+            
+            <li>
+              <a href="./index.html" class="navbar-link">Home</a>
+            </li>
+
+            <li>
+              <a href="./about.html"  class="navbar-link">About</a>
+            </li>
+
+            <li>
+              <a href="#"  class="navbar-link">Shop</a>
+            </li>
+
+            <li>
+              <a href="./blog.html" class="navbar-link">Blog</a>
+            </li>
+
+            <li>
+              <a href="./product-details.html"  class="navbar-link">Products</a>
+            </li>
+
+            <li>
+              <a href="./contact.html"  class="navbar-link">Contact</a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+        <div class="header-action">
+
+          <div class="search-wrapper" data-search-wrapper>
+
+            <button class="header-action-btn" aria-label="Toggle search" data-search-btn>
+              <ion-icon name="search-outline" class="search-icon"></ion-icon>
+              <ion-icon name="close-outline" class="close-icon"></ion-icon>
+            </button>
+
+            <div class="input-wrapper">
+              <input type="search" name="search" placeholder="Search here" class="search-input">
+
+              <button class="search-submit" aria-label="Submit search">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+            </div>
+
+          </div>
+
+          <button class="header-action-btn" aria-label="Open whishlist" data-panel-btn="whishlist">
+            <ion-icon name="heart-outline"></ion-icon>
+
+            <data class="btn-badge" value="3">03</data>
+          </button>
+
+          <button class="header-action-btn" aria-label="Open shopping cart" data-panel-btn="cart">
+            <ion-icon name="basket-outline"></ion-icon>
+
+            <data class="btn-badge" value="2">02</data>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+
+  <!-- 
+    - #ASIDE
+  -->
+
+  <aside class="aside">
+
+    <div class="side-panel" data-side-panel="whishlist">
+
+      <button class="panel-close-btn" aria-label="Close whishlist" data-panel-btn="whishlist">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <ul class="panel-list">
+
+        <li class="panel-item">
+          <a href="./product-details.html" class="panel-card">
+
+            <figure class="item-banner">
+              <img src="./assets/image/bed.webp" width="46" height="46" loading="lazy"
+                alt="Bright Side Vegetarian">
+            </figure>
+
+            <div>
+              <p class="item-title">Bright side bed</p>
+
+              <span class="item-value">Rs 2000.15x1</span>
+            </div>
+
+            <button class="item-close-btn" aria-label="Remove item">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </a>
+        </li>
+
+        <li class="panel-item">
+          <a href="./product-details.html" class="panel-card">
+
+            <figure class="item-banner">
+              <img src="./assets/image/chairrr-1.webp" width="46" height="46" loading="lazy" alt="Eco Vegetable">
+            </figure>
+
+            <div>
+              <p class="item-title">Comfortable chair</p>
+
+              <span class="item-value">Rs 1300.25x2</span>
+            </div>
+
+            <button class="item-close-btn" aria-label="Remove item">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </a>
+        </li>
+
+        <li class="panel-item">
+          <a href="./product-details.html" class="panel-card">
+
+            <figure class="item-banner">
+              <img src="./assets/image/godrej-2.avif" width="46" height="46" loading="lazy"
+                alt="House of Veggies">
+            </figure>
+
+            <div>
+              <p class="item-title">House of Godrej</p>
+
+              <span class="item-value">Rs 2000.15x1</span>
+            </div>
+
+            <button class="item-close-btn" aria-label="Remove item">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="subtotal">
+        <p class="subtotal-text">Subtotal:</p>
+
+        <data class="subtotal-value" value="215.14">Rs 45215.14</data>
+      </div>
+
+      <a href="./whishlist.html" class="panel-btn">View Whishlist</a>
+
+    </div>
+
+    <div class="side-panel" data-side-panel="cart">
+
+      <button class="panel-close-btn" aria-label="Close cart" data-panel-btn="cart">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <ul class="panel-list">
+
+        <li class="panel-item">
+          <a href="./product-details.html" class="panel-card">
+
+            <figure class="item-banner">
+              <img src="./assets/image/mobile-2.png" width="46" height="46" loading="lazy"
+                alt="Bright Side Vegetarian">
+            </figure>
+
+            <div>
+              <p class="item-title">Mobile Phone</p>
+
+              <span class="item-value">Rs 200000.15x1</span>
+            </div>
+
+            <button class="item-close-btn" aria-label="Remove item">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </a>
+        </li>
+
+        <li class="panel-item">
+          <a href="./product-details.html" class="panel-card">
+
+            <figure class="item-banner">
+              <img src="./assets/image/tablee-1.avif" width="46" height="46" loading="lazy" alt="Eco Vegetable">
+            </figure>
+
+            <div>
+              <p class="item-title">Eating Table</p>
+
+              <span class="item-value">Rs 1300.25x2</span>
+            </div>
+
+            <button class="item-close-btn" aria-label="Remove item">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="subtotal">
+        <p class="subtotal-text">Subtotal:</p>
+
+        <data class="subtotal-value" value="215.14">Rs 2150.14</data>
+      </div>
+
+      <a href="./cart.html" class="panel-btn">View Cart</a>
+
+    </div>
+
+  </aside>
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #BREADCUMB
+      -->
+
+      <div class="breadcumb-wrapper">
+
+        <h2 class="page-title">Shop Page</h2>
+
+        <ol class="breadcumb-list">
+
+          <li class="breadcumb-item">
+            <a href="./index.html" class="breadcumb-link">Home</a>
+          </li>
+
+          <li class="breadcumb-item">Product</li>
+
+        </ol>
+
+      </div>
+      <br>
+      <br>
+
+
+      <section id="blog">
+        <div class="navigation">
+            <a href="index.html" class="logo">
+                <i class="fas fa-blog"></i>Recyclemart
+            </a>
+            <nav>
+                <input type="checkbox" class="menu-btn" id="menu-btn">
+                <label for="menu-btn" class="menu-icon">
+                    <span class="nav-icon"></span>
+                </label>
+                <ul class="blog-filter">
+                    <li class="list blog-filter-active" data-filter="all">All</li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="blog-container">
+            <div class="blog-box app">
+
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/buddha-head-statue_2.webp">
+                    <span class="category">Buddha Statue</span>
+                </div>
+                <div class="blog-text">
+                    <a href="article.html">
+                        <h2>Recyclemart</h2>
+                        <h3>Buddha-Statue</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹5000</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <span><b>Re-cycled</b></span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box web">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/laptop.jpg">
+                    <span class="category">Laptop</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Dell-Laptop</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹80000</h3>
+                    </div>
+                    <div class="publisher-profile">
+                         <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box new">
+                <div class="blog-img">
+                    <img alt="img-1" src="./assets/image/brass.jpg">
+                    <span class="category">Brass</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Brass</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹800</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box app">
+
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/laptop-2.jpeg">
+                    <span class="category">Laptop</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Dell-Laptop</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹950000</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box web">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/chair-1.webp">
+                    <span class="category">Chair</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Chair</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹7500</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="naresh-modified.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box app">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/diya.jpg">
+                    <span class="category">Diya</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Diya</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹850</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="Sachin Kumar.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <!--box--7---------------------------------------->
+            <div class="blog-box new">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/knife.jpg">
+                    <span class="category">Old Knife</span>
+                </div>
+
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Old-Knife</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹6800</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="naresh-modified.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box app">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/telephone-2.jpg">
+                    <span class="category">Telephone</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Telephone</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹4500</h3>
+                        
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="Sachin Kumar.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box app">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/buddha-head-statue_1.webp">
+                    <span class="category">Buddha-Statue</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Buddha-statue</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹65200</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="Sojib.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box web">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/laptop-2.jpeg">
+                    <span class="category">Laptop</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Dell-Laptop</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹1200000</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="Sojib.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box app">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/chairrr-1.webp">
+                    <span class="category">Chair</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Chair</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹3500</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="Sachin Kumar.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-box web">
+                <div class="blog-img">
+                    <img alt="img" src="./assets/image/leather-2.webp">
+                    <span class="category">Leather-Bag</span>
+                </div>
+                <div class="blog-text">
+                    <a href="#">
+                        <h2>Recyclemart</h2>
+                        <h3>Leather-Bag</h3>
+                    </a>
+                    <div class="category-time">
+                        <h3>₹5600</h3>
+                    </div>
+                    <div class="publisher-profile">
+                        <!-- <img alt="Publisher" src="naresh-modified.png"> -->
+                        <span>Re-cycled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+<br>
+<br>
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="./index.html" class="logo">Recycle<span class="span">mart</span></a>
+
+          <p class="footer-text">
+            It was popularised in the 1960s with the release of Letraset sheets containing Lorem passages and more
+            recently with
+            desktop publishing software like including.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-skype"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
+
+          <li>
+            <a href="./about.html" class="footer-link">About Us</a>
+          </li>
+
+          <li>
+            <a href="./shop.html" class="footer-link">Shop</a>
+          </li>
+
+          <li>
+            <a href="./blog.html" class="footer-link">Blog</a>
+          </li>
+
+          <li>
+            <a href="./product-details.html" class="footer-link">Product</a>
+          </li>
+
+          <li>
+            <a href="./contact.html" class="footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Contact</p>
+          </li>
+
+          <li class="footer-item">
+            <div class="contact-icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <address class="contact-link">
+              7 Green Lake Street Phagwara,Punjab
+            </address>
+          </li>
+
+          <li class="footer-item">
+            <div class="contact-icon">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+
+            <a href="tel:+1800123456789" class="contact-link">+91 963 2587 410</a>
+          </li>
+
+          <li class="footer-item">
+            <div class="contact-icon">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <a href="mailto:organica@help.com" class="contact-link">recyclemart@help.com</a>
+          </li>
+
+        </ul>
+
+        <div class="footer-list">
+
+          <p class="footer-list-title">Newsletter</p>
+
+          <p class="newsletter-text">
+            You will be notified when somthing new will be appear.
+          </p>
+
+          <form action="" class="footer-form">
+            <input type="email" name="email" placeholder="Email Address *" required class="footer-input">
+
+            <button type="submit" class="footer-form-btn" aria-label="Submit">
+              <ion-icon name="mail-outline"></ion-icon>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 <a href="#" class="copyright-link">recyclemart</a>. All Rights Reserved.
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link">Term and Service</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-to-top" aria-label="Back to Top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
